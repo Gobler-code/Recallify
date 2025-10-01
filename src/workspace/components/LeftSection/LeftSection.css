@@ -1,0 +1,365 @@
+.send-btn:disabled,
+.clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.send-btn:disabled:hover,
+.clear-btn:disabled:hover {
+  background-color: #6366f1;
+  transform: none;
+}/* ========================================
+   ERROR NOTIFICATION
+   ======================================== */
+
+.error-notification {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* ========================================
+   LEFT SECTION - RECALLIFY
+   ======================================== */
+
+/* General Layout */
+.left-section {
+  flex: 1.1;
+  padding: 2rem;
+  background-color: #111827;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100vh; /* Ensure it takes full viewport height */
+}
+
+/* Title Styling */
+.left-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Title in compact mode (when content is uploaded) */
+.left-section h2.title-compact {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   INTEGRATED SEARCH/SOURCE BAR
+   ======================================== */
+
+.integrated-search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #27313f;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Compact mode - shrinks when content is uploaded */
+.integrated-search-bar.compact-mode {
+  transform: scale(0.95);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.integrated-search-bar:focus-within {
+  box-shadow: 0 0 0 1px #747475;
+  opacity: 1;
+}
+
+/* Input field */
+.integrated-search-input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: rgb(192, 190, 190);
+  transition: all 0.2s ease-in-out;
+}
+
+.integrated-search-input::placeholder {
+  color: #71767e;
+  transition: color 0.2s ease-in-out;
+}
+
+.integrated-search-input:focus::placeholder {
+  color: transparent;
+}
+
+.integrated-search-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Buttons */
+.integrated-btn {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
+  border-radius: 100px;
+}
+
+.integrated-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.integrated-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Plus button */
+.plus-btn {
+  color: #4CAF50;
+  padding-left: 1rem;
+}
+
+.plus-btn:hover:not(:disabled) {
+  color: #66bb6a;
+}
+
+/* Submit button */
+.submit-btn {
+  color: #ff8400;
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+  color: #ffab40;
+}
+
+/* ========================================
+   PROCESSING INDICATOR
+   ======================================== */
+
+.processing-indicator {
+  text-align: center;
+  padding: 1rem;
+  color: #6366f1;
+  font-style: italic;
+  font-weight: 500;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ========================================
+   DOCUMENT AREA (EDITABLE CONTENT)
+   ======================================== */
+
+.document-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #111827;
+  border: 1px solid #27313f;
+  border-radius: 12px;
+  padding: 1rem;
+  animation: slideIn 0.3s ease-out;
+  overflow: hidden; /* Prevent content from overflowing */
+  max-height: calc(100vh - 250px); /* Constrain height */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Document Header */
+.document-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #27313f;
+}
+
+.document-title {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.document-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.send-btn {
+  background-color: #6366f1;
+  color: white;
+}
+
+.send-btn:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.clear-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Editable Document Textarea */
+.editable-document {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #27313f;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+  min-height: 300px;
+  overflow-y: auto; /* Enable scrolling */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.editable-document:focus {
+  background-color: #27313f;
+  box-shadow: 0 0 0 1px #747475;
+}
+
+.editable-document::placeholder {
+  color: #6b7280;
+}
+
+/* Document Footer */
+.document-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #27313f;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.char-count, .word-count {
+  color: #6b7280;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+.left-section::-webkit-scrollbar,
+.editable-document::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-section::-webkit-scrollbar-track,
+.editable-document::-webkit-scrollbar-track {
+  background: #27313f;
+  border-radius: 3px;
+}
+
+.left-section::-webkit-scrollbar-thumb,
+.editable-document::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+.left-section::-webkit-scrollbar-thumb:hover,
+.editable-document::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .left-section {
+    padding: 1rem;
+  }
+  
+  .left-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .left-section h2.title-compact {
+    font-size: 1.25rem;
+  }
+  
+  .integrated-search-bar {
+    border-radius: 16px;
+  }
+  
+  .integrated-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .document-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .document-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

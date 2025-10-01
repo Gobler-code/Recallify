@@ -1,68 +1,23 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* src/index.css */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* --- CSS Reset for Default Browser Styles --- */
+html, body {
+  margin: 0;      /* Removes default outer spacing from the body */
+  padding: 0;     /* Removes default inner spacing from the body */
+  width: 100%;    /* Ensures body takes full width */
+  height: 100%;   /* Ensures body takes full height for components that rely on it */
+  overflow-x: hidden; /* Prevents horizontal scrollbar if content overflows slightly */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+#root { /* If your React app renders into a div with id="root" */
+  width: 100%;
+  height: 100%;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  display: flex; /* Often useful to make the root div also a flex container */
+  flex-direction: column; /* Or 'row', depending on your top-level layout */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* Your existing styles (like .left-section, .integrated-search-bar, etc.) follow here */
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* ... (Your existing CSS code) ... */
