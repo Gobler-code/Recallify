@@ -41,19 +41,69 @@
 }
 
 /* Title Styling */
+/* Logo styling */
+.workspace-logo-link {
+  display: inline-block;
+  text-align: left;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.workspace-logo {
+  height: auto;
+  width: 150px;
+  transition: all 0.3s ease;
+  transform: scale(1.2); /* Use transform scale to visually enlarge without affecting layout */
+  transform-origin: left; /* Scale from the left edge */
+  
+  
+}
+
+.workspace-logo-compact {
+  height: 40px; /* Reverted to original height */
+  width: auto;
+  transition: all 0.3s ease;
+  transform: scale(1.2); /* Use transform scale to visually enlarge */
+  transform-origin: left; /* Scale from the left edge */
+}
+/* When in compact mode, apply the shrinking */
+.left-section.compact-mode .workspace-logo {
+  transform: scale(1); /* Shrink back to its original box model size (no visual enlargement) */
+  margin-bottom: 0; /* Adjust margin if needed to make it go up */
+}
+
+.left-section.compact-mode .workspace-logo-compact {
+  transform: scale(1); /* Shrink back to its original box model size */
+  margin-bottom: 0; /* Adjust margin if needed */
+}
+
+.workspace-logo-link:hover .workspace-logo,
+.workspace-logo-link:hover .workspace-logo-compact {
+  transform: scale(1.25);
+}
+/* Override hover effect when in compact mode to avoid unexpected growth */
+.left-section.compact-mode .workspace-logo-link:hover .workspace-logo,
+.left-section.compact-mode .workspace-logo-link:hover .workspace-logo-compact {
+  transform: scale(1.05); /* Smaller hover effect when compact */
+}
+
 .left-section h2 {
-  margin-top: 0;
+   margin-top: 0;
   margin-bottom: 1.5rem;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 2.5rem;  /* Make it bigger - increase from 2rem */
   font-weight: 600;
   transition: all 0.3s ease-in-out;
+  text-align: left;  /* Align to left instead of center */
 }
 
 /* Title in compact mode (when content is uploaded) */
 .left-section h2.title-compact {
-  font-size: 1.5rem;
+  font-size: 2rem;  /* Bigger compact version too - increase from 1.5rem */
   margin-bottom: 1rem;
+  text-align: left;  /* Keep left aligned when compact */
 }
 
 /* ========================================
@@ -69,7 +119,7 @@
   overflow: hidden;
   background-color: #27313f;
   margin-bottom: 1.5rem;
-  transition: all 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out, margin-bottom 0.3s ease-in-out, opacity 0.3s ease-in-out; 
 }
 
 /* Compact mode - shrinks when content is uploaded */
@@ -362,4 +412,12 @@
     width: 100%;
     justify-content: flex-end;
   }
+}
+.left-section h2 {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.left-section h2:hover {
+  opacity: 0.8;
 }

@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useFileProcessor } from './useFileProcessor';
+import logo from '../../../assets/recallify.png';
 import EditableDocument from './EditableDocument';
 import "./LeftSection.css";
 
@@ -94,12 +96,19 @@ export default function LeftSection({ onSubmit }) {
 
   // Validate if content can be submitted
   const canSubmit = inputText.trim().length > 0;
-  const canGenerate = editableContent.trim().length > 0;
+  
 
+ 
   return (
     <div className="left-section">
-      {/* Title */}
-      <h2 className={hasContent ? "title-compact" : ""}>Recallify</h2>
+      {/* Logo - Now clickable */}
+      <Link to="/" className="workspace-logo-link">
+        <img 
+          src={logo} 
+          alt="Recallify Logo" 
+          className={hasContent ? "workspace-logo-compact" : "workspace-logo"} 
+        />
+      </Link>
       
       {/* Hidden file input */}
       <input
