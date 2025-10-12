@@ -20,7 +20,7 @@ export default function LeftSection({ onSubmit }) {
     setInputText(e.target.value);
   };
 
-  // Handle editable content change
+  // Handle editable content ochange
   const handleEditableContentChange = (e) => {
     setEditableContent(e.target.value);
   };
