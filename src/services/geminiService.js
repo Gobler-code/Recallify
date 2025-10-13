@@ -143,32 +143,70 @@ Respond ONLY with the JSON array, no additional text.`;
   }));
 }
 
-// Generate Highlights
+// Generate Highlights - Smart Summary Approach
 export async function generateHighlights(text) {
-  const { highlightCount } = calculateItemCount(text);
+  const wordCount = text.trim().split(/\s+/).length;
   
-  const prompt = `Based on the following text, identify exactly ${highlightCount} key sentences or phrases that should be highlighted.
-The number of highlights is based on the content length to capture all important points.
+  // Determine number of highlights based on text length
+  let targetCount;
+  if (wordCount < 300) {
+    targetCount = "5-8";
+  } else if (wordCount < 1000) {
+    targetCount = "10-20";
+  } else {
+    targetCount = "20-40";
+  }
+  
+  const prompt = `You are helping build a Smart Highlight Generator feature for a study app. The user has provided text extracted from educational material. Your job is to analyze the content and return a structured list of only the most important points — not the entire text — grouped into three categories of importance.
 
-Format your response as a JSON array with objects containing "text" (the sentence/phrase) and "color" (hex color code).
+🎯 GOAL
+Summarize the text into clear, study-ready highlight points that represent only the essential ideas or facts. Do not include the whole text or random phrases. Each highlight must be concise, self-contained, and valuable for revision.
 
-Use these colors:
-- Yellow (#FFFF00) for main concepts
-- Green (#90EE90) for definitions
-- Pink (#FFB6C1) for important facts
-- Blue (#ADD8E6) for examples
-- Orange (#FFA500) for warnings/critical info
+📚 CATEGORIES
+Each point must belong to one of these three categories:
 
-Example format:
+1. **Sure Exam Question** → Core concepts, definitions, formulas, key facts, or main ideas that are very likely to be asked in exams.
+   - Examples: definitions, laws, formulas, core theories, critical dates/events
+
+2. **Important** → Key explanations, examples, processes, or supporting facts that are necessary for understanding.
+   - Examples: how something works, why something happens, important examples
+
+3. **Less Important** → Contextual information, historical background, or secondary details that are good to know but not crucial.
+   - Examples: interesting facts, background context, supplementary information
+
+🎨 OUTPUT FORMAT
+Return a valid JSON array with this structure:
 [
-  {"text": "This is an important sentence.", "color": "#FFFF00"},
-  {"text": "Another key point.", "color": "#90EE90"}
+  {
+    "text": "Concise and clear important point.",
+    "category": "Sure Exam Question",
+    "color": "#FFD700"
+  },
+  {
+    "text": "Another key point with explanation.",
+    "category": "Important",
+    "color": "#90EE90"
+  }
 ]
+
+Use these EXACT colors:
+- Sure Exam Question → #FFD700 (gold)
+- Important → #90EE90 (light green)
+- Less Important → #ADD8E6 (light blue)
+
+⚙️ BEHAVIOR RULES
+✓ Each highlight should be 1 complete idea, not a random phrase or fragment
+✓ Do not include titles, headers, or chapter names as points
+✓ Avoid duplication — keep only unique ideas
+✓ Target ${targetCount} highlights based on text length
+✓ Ensure the tone is clear, direct, and easy to revise
+✓ If the text doesn't contain enough unique information, return fewer points rather than inventing fake ones
+✓ Focus on what students need to remember for exams and understanding
 
 Text to analyze:
 ${text}
 
-Respond ONLY with the JSON array, no additional text.`;
+Return ONLY the JSON array. No markdown code blocks, no explanation, just the raw JSON array.`;
 
   const response = await callGeminiAPI(prompt);
   const highlights = parseJSONResponse(response);
@@ -177,8 +215,13 @@ Respond ONLY with the JSON array, no additional text.`;
     throw new Error('Invalid highlight format');
   }
   
-  return highlights.map(highlight => ({
-    text: highlight.text || '',
-    color: highlight.color || '#FFFF00'
-  }));
+  // Validate and format highlights
+  return highlights
+    .filter(h => h.text && h.text.trim().length > 10) // At least 10 characters
+    .map((highlight, index) => ({
+      id: index,
+      text: highlight.text.trim(),
+      category: highlight.category || 'Important',
+      color: highlight.color || '#90EE90'
+    }));
 }

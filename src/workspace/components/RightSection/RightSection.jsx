@@ -54,7 +54,6 @@ export default function RightSection({ notesText }) {
         case 'highlight':
           result = await generateHighlights(notesText);
           setHighlights(result);
-          setIsExpanded(prev => ({ ...prev, highlight: true }));
           break;
 
         default:
@@ -126,13 +125,13 @@ export default function RightSection({ notesText }) {
               onToggleExpand={() => handleToggleExpand('quiz')}
             />
           )}
-
-          {activeTool === 'highlight' && (
+  {activeTool === 'highlight' && (
             <HighlightTool
               highlights={highlights}
               onUpdate={setHighlights}
               isExpanded={isExpanded.highlight}
               onToggleExpand={() => handleToggleExpand('highlight')}
+              originalText={notesText}
             />
           )}
         </div>
