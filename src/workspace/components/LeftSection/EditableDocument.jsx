@@ -1,11 +1,18 @@
 import React, { useRef, useMemo } from 'react';
-
+import VocabManager from './VocabManager';
+import Selection from './Selection';
 export default function EditableDocument({ 
   content, 
   onChange, 
   fileName, 
   onGenerateTools, 
-  onClear 
+  onClear ,
+
+  vocabList,
+  onAddToVocab,
+  onRemoveFromVocab,
+  onClearVocab,
+  onSendVocabBatchToRightSection
 }) {
   const textareaRef = useRef(null);
 
@@ -26,6 +33,7 @@ export default function EditableDocument({
           {fileName}
         </span>
         <div className="document-actions">
+          
           <button 
             className="action-btn send-btn"
             onClick={onGenerateTools}
@@ -43,6 +51,11 @@ export default function EditableDocument({
           >
             Clear
           </button>
+          <VocabManager
+            vocabList={vocabList}
+            onRemove={onRemoveFromVocab}
+            onClearVocabList={onClearVocab} 
+             onSendToVocabTool={onSendVocabBatchToRightSection} />
         </div>
       </div>
       
@@ -54,6 +67,7 @@ export default function EditableDocument({
         placeholder="Your content will appear here. You can edit it directly..."
         aria-label="Editable document content"
       />
+       <Selection onAddToVocab={onAddToVocab} />
       
       <div className="document-footer">
         <span className="char-count" aria-label="Character count">

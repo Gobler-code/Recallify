@@ -5,13 +5,18 @@ import logo from '../../../assets/recallify.png';
 import EditableDocument from './EditableDocument';
 import "./LeftSection.css";
 
-export default function LeftSection({ onSubmit }) {
+export default function LeftSection({ onSubmit,
+                                      vocabList,
+                                      onAddToVocab,
+                                      onRemoveFromVocab,
+                                      onClearVocabList }) {
   const [inputText, setInputText] = useState("");
   const [editableContent, setEditableContent] = useState("");
   const [hasContent, setHasContent] = useState(false);
   const [uploadedFileName, setUploadedFileName] = useState("");
   const [showError, setShowError] = useState(null);
   
+
   const fileInputRef = useRef(null);
   const { processFiles, isProcessing, error } = useFileProcessor();
 
@@ -97,7 +102,6 @@ export default function LeftSection({ onSubmit }) {
   // Validate if content can be submitted
   const canSubmit = inputText.trim().length > 0;
   
-
  
   return (
     <div className="left-section">
@@ -175,8 +179,15 @@ export default function LeftSection({ onSubmit }) {
           fileName={uploadedFileName}
           onGenerateTools={handleSendToTools}
           onClear={handleClearContent}
-        />
+        //vocab props
+       vocabList = {vocabList}
+       onAddToVocab ={onAddToVocab}
+       onRemoveFromVocab = {onRemoveFromVocab}
+       onClearVocabList = {onClearVocabList}
+       />
       )}
+      
+
     </div>
   );
 }

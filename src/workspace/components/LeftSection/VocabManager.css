@@ -1,0 +1,234 @@
+/* ===========================
+   VocabManager.css (Flashcard Theme)
+   =========================== */
+
+/* Floating vocab badge (top-right icon) */
+.vocab-badge {
+  position: relative;
+  background-color: #1f2937;
+  border: 2px solid #374151;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vocab-badge:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.vocab-badge.active {
+  color: #93c5fd;
+  border-color: #6366f1;
+  background-color: #111827;
+}
+
+/* Count number inside badge */
+.vocab-count {
+  font-size: 0.9rem;
+  color: inherit;
+}
+
+/* ===========================
+   Modal Overlay
+   =========================== */
+.vocab-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===========================
+   Modal Box
+   =========================== */
+.vocab-modal-content {
+  background-color: #1f2937;
+  border: 2px solid #374151;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 360px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  color: white;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close button (X) */
+.vocab-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.vocab-modal-close:hover {
+  color: #ef4444;
+}
+
+/* Modal title */
+.vocab-modal-content h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #93c5fd;
+  margin-bottom: 1rem;
+}
+
+/* ===========================
+   Vocab List Section
+   =========================== */
+.vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  max-height: 260px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #374151 transparent;
+}
+
+.vocab-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vocab-list::-webkit-scrollbar-thumb {
+  background-color: #374151;
+  border-radius: 6px;
+}
+
+/* Each vocab item */
+.vocab-list-item {
+  background-color: #2d3748;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e5e7eb;
+  transition: border-color 0.2s ease;
+}
+
+.vocab-list-item:hover {
+  border-color: #6366f1;
+  color: #c7d2fe;
+}
+
+/* Remove button (×) inside list */
+.remove-vocab-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.remove-vocab-btn:hover {
+  color: #f87171;
+}
+
+/* ===========================
+   Action Buttons
+   =========================== */
+.clear-all-vocab-btn,
+.send-vocab-to-tool-btn {
+  display: block;
+  width: 100%;
+  margin-top: 0.6rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Clear button (red) */
+.clear-all-vocab-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.clear-all-vocab-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Send button (blue/purple) */
+.send-vocab-to-tool-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.send-vocab-to-tool-btn:disabled {
+  background-color: #1e3a8a;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.send-vocab-to-tool-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+/* ===========================
+   Messages
+   =========================== */
+.empty-vocab-message {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.vocab-error-message {
+  color: #f87171;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.vocab-hint-message {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
