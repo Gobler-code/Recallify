@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './VocabTool.css';
 export default function VocabTool({
   vocabInsights,
   onUpdate,
