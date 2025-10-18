@@ -1,4 +1,4 @@
-// Replace with your actual API key
+
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent';
@@ -143,6 +143,58 @@ Respond ONLY with the JSON array, no additional text.`;
   }));
 }
 
+export async function generateVocabInsights(wordsList) {
+  const hardwords = wordsList.join(', ');
+    
+  const prompt = `Based on the following terms, provide detailed vocabulary insights for each word.
+
+Terms: ${hardwords}
+
+For EACH term, provide:
+1. A clear, concise definition
+2. 2-3 example sentences demonstrating CORRECT usage
+3. 1 example sentence demonstrating INCORRECT or common misuse
+
+Format your response as a JSON array with this EXACT structure:
+[
+  {
+    "word": "photosynthesis",
+    "definition": "The process by which plants convert light energy into chemical energy",
+    "correctExamples": [
+      "Plants use photosynthesis to create their own food from sunlight.",
+      "Chlorophyll plays a crucial role in photosynthesis.",
+      "Without photosynthesis, there would be no oxygen in our atmosphere."
+    ],
+    "incorrectExample": "I'm going to photosynthesis my homework tonight."
+  }
+]
+
+IMPORTANT: 
+- Provide insights for ALL ${wordsList.length} terms
+- Use the exact field names: "word", "definition", "correctExamples", "incorrectExample"
+- correctExamples must be an array of 2-3 strings
+- Make examples realistic and educational
+
+Respond ONLY with the JSON array, no additional text or markdown.`;
+
+  const response = await callGeminiAPI(prompt);
+  const vocabInsights = parseJSONResponse(response);
+  
+  if (!Array.isArray(vocabInsights)) {
+    throw new Error('Invalid vocabulary format');
+  }
+  
+  // Validate and format the response
+  return vocabInsights.map(vocab => ({
+    word: vocab.word || '',
+    definition: vocab.definition || '',
+    correctExamples: Array.isArray(vocab.correctExamples) 
+      ? vocab.correctExamples 
+      : [],
+    incorrectExample: vocab.incorrectExample || ''
+  }));
+
+}
 // Generate Highlights - Smart Summary Approach
 export async function generateHighlights(text) {
   const wordCount = text.trim().split(/\s+/).length;

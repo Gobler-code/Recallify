@@ -3,7 +3,7 @@ import ToolSelector from './ToolSelector';
 import FlashcardTool from './FlashcardTool';
 import QuizTool from './QuizTool';
 import HighlightTool from './HighlightTool';
-import { generateFlashcards, generateQuiz, generateHighlights } from "../../../services/geminiService";
+import { generateFlashcards, generateQuiz, generateHighlights,generateVocabInsights } from "../../../services/geminiService";
 import './RightSection.css';
 
 export default function RightSection({ notesText,vocabBatch }) {
@@ -22,15 +22,23 @@ export default function RightSection({ notesText,vocabBatch }) {
     flashcard: false,
     quiz: false,
     highlight: false,
-    vocabInsights: false
+    vocab: false
   });
 
   // Handle selecting a tool and calling Gemini API
   const handleSelectTool = async (toolId) => {
-    if (!notesText || !notesText.trim()) {
-      setError("Please add content in the left section first");
-      setTimeout(() => setError(null), 3000);
-      return;
+     if (toolId === 'vocab') {
+      if (!vocabBatch || vocabBatch.length < 5) {
+        setError("Please collect 5-8 words first in the vocabulary cart");
+        setTimeout(() => setError(null), 3000);
+        return;
+      }
+    } else {
+      if (!notesText || !notesText.trim()) {
+        setError("Please add content in the left section first");
+        setTimeout(() => setError(null), 3000);
+        return;
+      }
     }
 
     setActiveTool(toolId);
@@ -60,8 +68,9 @@ export default function RightSection({ notesText,vocabBatch }) {
 
         case 'vocab':
           result = await generateVocabInsights(vocabBatch);
-          setVocabulary(result);
-          setIsExpanded(prev => ({...prev ,vocabulary:true}))
+          setvocabInsights(result);
+          setIsExpanded(prev => ({...prev ,vocab:true}))
+          break;
 
         default:
           throw new Error('Unknown tool selected');
@@ -82,7 +91,7 @@ export default function RightSection({ notesText,vocabBatch }) {
   // Go back to tool selection
   const handleBackToTools = () => {
     setActiveTool(null);
-    setIsExpanded({ flashcard: false, quiz: false, highlight: false ,vocabulary:false });
+    setIsExpanded({ flashcard: false, quiz: false, highlight: false ,vocab:false });
   };
 
   const isContentAvailable = notesText && notesText.trim().length > 0;
@@ -142,7 +151,7 @@ export default function RightSection({ notesText,vocabBatch }) {
             />
           )}
            {activeTool === 'vocab' && (
-            <vocabulary
+            <VocabTool
               vocabInsights={vocabInsights}
               onUpdate={setvocabInsights}
               isExpanded={isExpanded.vocab}
