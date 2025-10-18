@@ -77,9 +77,9 @@ export default function VocabManager({
                 <button
                 className="clear-all-vocab-btn"
                 onClick={() => {
-                    if (window.confirm("Are you sure you want to clear all collected vocabulary?")) {
+                    
                         onClearVocabList();
-                    }
+                    
                 }}
                 title="Clear all collected vocabulary"
                 aria-label="Clear all collected vocabulary"

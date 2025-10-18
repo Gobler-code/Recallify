@@ -41,7 +41,7 @@ export default function Selection({ onAddToVocab }) {
       const range = selection.getRangeAt(0);
       const rect = range.getBoundingClientRect();
       setSelectedText(trimmedText);
-      setPopupPosition({ top: rect.bottom +5, left: rect.left });
+      setPopupPosition({ top: rect.bottom  +window.scrollY +5, left: rect.left + window.scrollX });
       setShowPopup(true);
     };
 
@@ -73,7 +73,7 @@ export default function Selection({ onAddToVocab }) {
         <div
           ref={popupRef}
           style={{
-            position: "fixed",
+            position: "absolute",
             top: `${popupPosition.top}px`,
             left: `${popupPosition.left}px`,
             border: "none",
@@ -85,7 +85,7 @@ export default function Selection({ onAddToVocab }) {
           <button
             onClick={handleAddVocab}
             style={{
-              background: "#353739ff",
+              background: "#27313f",
               color: "white",
               border: "none",
               padding: "6px 10px",
