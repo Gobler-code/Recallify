@@ -12,7 +12,7 @@ export default function EditableDocument({
   onAddToVocab,
   onRemoveFromVocab,
   onClearVocabList,
-  onSendVocabBatchToRightSection
+  onSendVocabBatchToTool
 }) {
   const textareaRef = useRef(null);
 
@@ -55,7 +55,7 @@ export default function EditableDocument({
             vocabList={vocabList}
             onRemove={onRemoveFromVocab}
             onClearVocabList={onClearVocabList} 
-             onSendToVocabTool={onSendVocabBatchToRightSection} />
+             onSendToVocabTool={onSendVocabBatchToTool} />
         </div>
       </div>
       

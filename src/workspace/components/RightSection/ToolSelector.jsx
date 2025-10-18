@@ -19,6 +19,13 @@ export default function ToolSelector({ onSelectTool, disabled }) {
       name: 'Highlight Generator', 
       icon: '✨',
       description: 'Extract key points'
+    },
+
+    {
+      id:'vocab',
+      name:'Vocabulary',
+      icon:'📚',
+      discription:'Provide meanings for unknown word'
     }
   ];
 

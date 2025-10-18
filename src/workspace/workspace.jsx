@@ -48,7 +48,7 @@ export default function Workspace() {
        onAddToVocab ={addToVocab}
        onRemoveFromVocab = {removeFromVocab}
        onClearVocabList = {clearVocabList}
-       onSendVocabBatchToRightSection={handleSendVocabBatch} />
+       onSendVocabBatchToTool={handleSendVocabBatch} />
       <RightSection 
        notesText={submittedText} /* RightSection sees data only on submit */
        vocabBatch = {sentVocabBatch}

@@ -6,7 +6,7 @@ import HighlightTool from './HighlightTool';
 import { generateFlashcards, generateQuiz, generateHighlights } from "../../../services/geminiService";
 import './RightSection.css';
 
-export default function RightSection({ notesText }) {
+export default function RightSection({ notesText,vocabBatch }) {
   const [activeTool, setActiveTool] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -15,12 +15,14 @@ export default function RightSection({ notesText }) {
   const [flashcards, setFlashcards] = useState([]);
   const [quizzes, setQuizzes] = useState([]);
   const [highlights, setHighlights] = useState([]);
+  const [vocabInsights, setvocabInsights] = useState([])
 
   // Expand/collapse state
   const [isExpanded, setIsExpanded] = useState({
     flashcard: false,
     quiz: false,
-    highlight: false
+    highlight: false,
+    vocabInsights: false
   });
 
   // Handle selecting a tool and calling Gemini API
@@ -56,6 +58,11 @@ export default function RightSection({ notesText }) {
           setHighlights(result);
           break;
 
+        case 'vocab':
+          result = await generateVocabInsights(vocabBatch);
+          setVocabulary(result);
+          setIsExpanded(prev => ({...prev ,vocabulary:true}))
+
         default:
           throw new Error('Unknown tool selected');
       }
@@ -75,7 +82,7 @@ export default function RightSection({ notesText }) {
   // Go back to tool selection
   const handleBackToTools = () => {
     setActiveTool(null);
-    setIsExpanded({ flashcard: false, quiz: false, highlight: false });
+    setIsExpanded({ flashcard: false, quiz: false, highlight: false ,vocabulary:false });
   };
 
   const isContentAvailable = notesText && notesText.trim().length > 0;
@@ -125,13 +132,21 @@ export default function RightSection({ notesText }) {
               onToggleExpand={() => handleToggleExpand('quiz')}
             />
           )}
-  {activeTool === 'highlight' && (
+          {activeTool === 'highlight' && (
             <HighlightTool
               highlights={highlights}
               onUpdate={setHighlights}
               isExpanded={isExpanded.highlight}
               onToggleExpand={() => handleToggleExpand('highlight')}
               originalText={notesText}
+            />
+          )}
+           {activeTool === 'vocab' && (
+            <vocabulary
+              vocabInsights={vocabInsights}
+              onUpdate={setvocabInsights}
+              isExpanded={isExpanded.vocab}
+              onToggleExpand={() => handleToggleExpand('vocab')}
             />
           )}
         </div>
