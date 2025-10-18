@@ -9,7 +9,9 @@ export default function LeftSection({ onSubmit,
                                       vocabList,
                                       onAddToVocab,
                                       onRemoveFromVocab,
-                                      onClearVocabList }) {
+                                      onClearVocabList,
+                                      onSendVocabBatchToTool
+                                     }) {
   const [inputText, setInputText] = useState("");
   const [editableContent, setEditableContent] = useState("");
   const [hasContent, setHasContent] = useState(false);
@@ -184,6 +186,7 @@ export default function LeftSection({ onSubmit,
        onAddToVocab ={onAddToVocab}
        onRemoveFromVocab = {onRemoveFromVocab}
        onClearVocabList = {onClearVocabList}
+       onSendVocabBatchToTool={onSendVocabBatchToTool}
        />
       )}
       

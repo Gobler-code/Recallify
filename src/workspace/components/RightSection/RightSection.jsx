@@ -3,6 +3,7 @@ import ToolSelector from './ToolSelector';
 import FlashcardTool from './FlashcardTool';
 import QuizTool from './QuizTool';
 import HighlightTool from './HighlightTool';
+import VocabTool from './VocabTool';
 import { generateFlashcards, generateQuiz, generateHighlights,generateVocabInsights } from "../../../services/geminiService";
 import './RightSection.css';
 
