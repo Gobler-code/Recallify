@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, BarChart3, ArrowRight, Sparkles } from 'lucide-react';
 import logo from '../assets/recallify.png'; // Adjust path based on your folder structure
-import './HomePage.css';
+import './Homepage.css';
 
 export function HomePage() {
   const [scrollY, setScrollY] = useState(0);
