@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, BarChart3, ArrowRight, Sparkles } from 'lucide-react';
-import logo from '../assets/recallify.png'; // Adjust path based on your folder structure
+import logo from '../assets/ismaran.png'; 
 import './Homepage.css';
 
 export function HomePage() {

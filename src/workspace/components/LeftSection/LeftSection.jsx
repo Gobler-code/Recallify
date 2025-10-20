@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useFileProcessor } from './useFileProcessor';
-import logo from '../../../assets/recallify.png';
+import logo from '../../../assets/ismaran.png';
 import EditableDocument from './EditableDocument';
 import "./LeftSection.css";
 

@@ -53,7 +53,7 @@
 
 .workspace-logo {
   height: auto;
-  width: 150px;
+  width: 100px;
   transition: all 0.3s ease;
   transform: scale(1.2); /* Use transform scale to visually enlarge without affecting layout */
   transform-origin: left; /* Scale from the left edge */
