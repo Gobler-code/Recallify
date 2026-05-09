@@ -30,7 +30,7 @@ No more manually making study cards. Just upload and learn.
 ## 📸 Demo
 
 ### 1️⃣ Initial State
-![Initial State](public/screenshots/01-empty.png)
+![Initial State](public/screenshots/01-empty.png.png)
 
 ### 2️⃣ Flashcards
 ![Flashcards](public/screenshots/02-flashcards.png)
@@ -42,7 +42,7 @@ No more manually making study cards. Just upload and learn.
 ![Highlights](public/screenshots/04-highlights.png)
 
 ### 5️⃣ Vocabulary Box
-![Vocabulary Box](public/screenshots/05-vocabbox.png)
+![Vocabulary Box](public/screenshots/05-vocabularybox.png)
 
 ### 6️⃣ Vocabulary Insights
 ![Vocabulary Insights](public/screenshots/06-vocab.png)
