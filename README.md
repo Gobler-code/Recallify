@@ -1,145 +1,177 @@
-📚 Recallify
-🎯 Project Overview
+<div align="center">
 
-Recallify is an intelligent web application designed to revolutionize how students study. By leveraging AI and advanced file processing, Recallify transforms uploaded documents (PDFs, Word files, images) into interactive study tools—flashcards, quizzes, highlights, and vocabulary aids—making memorization and recall more effective.
-With Recallify, passive reading turns into active learning, helping students retain concepts, practice recall, and expand vocabulary efficiently.
+# 📚 Ismaran
 
-Live Demo: https://recallify-uparjan.vercel.app/
+**Transform any document into a complete study session — instantly.**
 
-✨ Key Features
-📄 Smart Document Processing
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://ismaran-uparjan.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Ismaran)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
-Multi-format Support: PDF, Word, images, plain text.
+</div>
 
-Editable Content: Review and edit extracted text.
+---
 
-VocabManager Integration: Select hard words for personalized vocabulary lists.
+## 🎯 What is Ismaran?
 
-🧠 AI-Powered Study Tools
-Flashcard Generator
+Ismaran is an AI-powered study tool that turns your PDFs, images, and notes into interactive learning materials in seconds. Upload a document and instantly get:
 
-Auto-generates Q&A pairs from notes
+- ✅ Flashcards with Q&A pairs
+- ✅ Multiple-choice quizzes with instant scoring
+- ✅ Smart highlights categorized by exam importance
+- ✅ Vocabulary cards with definitions and usage examples
 
-Interactive flip cards
+No more manually making study cards. Just upload and learn.
 
-Edit, delete, and export flashcards
+**→ [Try it live](https://ismaran-uparjan.vercel.app/)**
 
-Quiz Generator
+---
 
-Multiple-choice quizzes
+## ✨ Features
 
-Instant feedback and scoring
+### 📄 Document Processing
+- Upload **PDFs, Word documents, and images** (JPG, PNG)
+- Paste raw text directly
+- Review and edit extracted content before generating
+- Select difficult words to build a custom vocabulary list
 
-Editable questions and answers
+### 🧠 AI Study Tools
 
-Highlight Tool
+| Tool | What it does |
+|------|-------------|
+| **Flashcards** | Auto-generates Q&A pairs; flip, edit, delete, export |
+| **Quiz** | Multiple-choice questions with instant feedback and score tracking |
+| **Smart Highlights** | Key sentences color-coded by importance (Exam Critical / Important / Good to Know) |
+| **Vocabulary** | Definitions + correct & incorrect usage examples for selected words |
 
-Extracts key sentences and concepts
+### 📤 Export
+- Export Flashcards, Quizzes, Highlights, and Vocabulary as **text files**
+- Download anytime for offline study
 
-Color-coded highlights (concepts, definitions, facts, examples, critical info)
+### 🎨 UI & Experience
+- Dark theme optimized for long study sessions
+- Responsive layout for desktop and tablet
+- Smooth animations and expandable tool panels
 
-Editable highlights
+---
 
-VocabTool (New!)
+## 🛠️ Tech Stack
 
-Select hard words from documents
+| Category | Technology |
+|----------|-----------|
+| Frontend | React 18, Vite, CSS3 |
+| AI / LLM | Groq (Llama 3.3 70B) |
+| File Processing | pdf.js, Tesseract.js, Mammoth.js |
+| Deployment | Vercel |
 
-AI generates:
+> **AI Engine:** Powered by Groq's Llama 3.3 70B — chosen for its speed, generous free tier, and strong instruction-following for structured JSON output across all study tools (flashcards, quizzes, highlights, vocabulary).
 
-Definitions/meanings
+---
 
-2–3 correct sentence examples
+## 🚀 Getting Started
 
-1 incorrect sentence example (for learning quizzes)
+### Prerequisites
+- Node.js 18+
+- A free Groq API key
 
-Interactive and editable word cards
+### Installation
 
-🎨 Modern UI
+```bash
+# Clone the repo
+git clone https://github.com/Gobler-code/Ismaran.git
+cd Ismaran
 
-Dark theme for long study sessions
+# Install dependencies
+npm install
+```
 
-Responsive and intuitive layout
+### Environment Setup
 
-Smooth animations, expandable tool views
+Create a `.env` file in the root directory:
 
-🛠️ Tech Stack
+```env
+VITE_GROQ_API_KEY=your_groq_key_here
+```
 
-React 18.x & Vite – Frontend framework and dev environment
+Get your free API key:
+- **Groq** → [console.groq.com](https://console.groq.com) — no credit card required
 
-JavaScript (ES6+) & CSS3 – Modern, modular styling
+### Run Locally
 
-Google Gemini API – AI-powered content generation
+```bash
+npm run dev
+```
 
-pdf.js, Tesseract.js, Mammoth.js – Document processing
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-Git & GitHub – Version control
+---
 
-📁 Project Structure (Highlights)
-workspace/
-├── LeftSection/
-│   ├── LeftSection.jsx
-│   ├── EditableDocument.jsx
-│   ├── VocabManager.jsx
-├── RightSection/
-│   ├── FlashcardTool.jsx
-│   ├── QuizTool.jsx
-│   ├── HighlightTool.jsx
-│   └── VocabTool.jsx
-services/
-└── geminiService.js
+## 📁 Project Structure
 
-🗺️ Roadmap
+```
+Ismaran/
+├── src/
+│   ├── components/
+│   │   ├── LeftSection/
+│   │   │   ├── LeftSection.jsx       # Document upload & text extraction
+│   │   │   ├── EditableDocument.jsx  # Extracted text editor
+│   │   │   └── VocabManager.jsx      # Word selection for vocabulary
+│   │   └── RightSection/
+│   │       ├── RightSection.jsx      # Tool panel container
+│   │       ├── FlashcardTool.jsx     # Flashcard generator & viewer
+│   │       ├── QuizTool.jsx          # Quiz generator & scorer
+│   │       ├── HighlightTool.jsx     # Smart highlight extractor
+│   │       └── VocabTool.jsx         # Vocabulary card generator
+│   └── services/
+│       └── geminiService.js          # Groq API integration
+├── public/
+├── index.html
+└── vite.config.js
+```
 
-Current Version (v1.1)
+---
 
-✅ PDF, Word, and image text extraction
+## 🗺️ Roadmap
 
-✅ Flashcards & quiz generation
+**v1.1 — Current**
+- [x] PDF, Word, and image text extraction
+- [x] Flashcard and quiz generation
+- [x] Smart highlights with importance categories
+- [x] Vocabulary tool with usage examples
 
-✅ Highlight extraction with color coding
+**v1.2 — Planned**
+- [ ] Spaced repetition system for smarter review
+- [ ] Study session analytics and performance tracking
+- [ ] Summary and mind map generators
+- [ ] Export to PDF / Anki format
 
-✅ VocabManager & VocabTool
+**v2.0 — Future**
+- [ ] User accounts and cloud sync
+- [ ] Collaborative study rooms
+- [ ] Mobile app (React Native)
+- [ ] Multi-language support
 
-✅ Export functionality
+---
 
-Future Improvements
+## 👨‍💻 Author
 
-Spaced Repetition System for intelligent review
+**Uparjan Gautam**
+- GitHub: [@Gobler-code](https://github.com/Gobler-code)
 
-Summary & Mind Map generators
+---
 
-Study analytics & performance tracking
+## 🙏 Acknowledgments
 
-Collaborative features & cloud sync
+- [Groq](https://groq.com/) — AI-powered content generation (Llama 3.3 70B)
+- [pdf.js](https://mozilla.github.io/pdf.js/) — PDF text extraction
+- [Tesseract.js](https://tesseract.projectnaptha.com/) — Image OCR
+- [Mammoth.js](https://github.com/mwilliamson/mammoth.js) — Word document processing
 
-Mobile app & offline mode
+---
 
-Multi-language support & voice notes
+<div align="center">
 
-🤝 Contributing
+Made with ❤️ for students everywhere · ⭐ Star this repo if it helped you!
 
-Fork the repository
-
-Create a feature branch
-
-Commit changes
-
-Push branch and open a Pull Request
-
-Follow existing code style and add comments where needed.
-
-👨‍💻 Author
-
-Your Uparjan Gautam
-
-GitHub: @Gobler-code
-
-🙏 Acknowledgments
-
-Google Gemini AI – Content generation
-
-pdf.js, Tesseract.js, Mammoth.js – File processing
-
-All contributors and testers
-
-<div align="center"> **Made with ❤️ for students and learners worldwide** ⭐ Star this repo if you find it helpful! </div>
+</div>
