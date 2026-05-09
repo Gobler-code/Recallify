@@ -4,13 +4,12 @@
 
 **Transform any document into a complete study session — instantly.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://ismaran-uparjan.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Ismaran)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://recallify-341u-5itodvpct-gobler-codes-projects.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Recallify)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
 </div>
-
 ---
 
 ## 🎯 What is Ismaran?
@@ -24,48 +23,28 @@ Ismaran is an AI-powered study tool that turns your PDFs, images, and notes into
 
 No more manually making study cards. Just upload and learn.
 
-**→ [Try it live](https://ismaran-uparjan.vercel.app/)**
+(**→ [Try it live](https://recallify-341u-5itodvpct-gobler-codes-projects.vercel.app/)**)
 
 ---
 ## 📸 Demo
 
-### 1️⃣ Upload your document or paste text
-![Empty State](## 📸 Demo
+### 1️⃣ Initial State
+![Initial State](public/screenshots/01-empty.png.png)
 
-### 1️⃣ Upload your document or paste text
-![Empty State](public/screenshots/Screenshot 2026-05-09 220017.png)
+### 2️⃣ Flashcards
+![Flashcards](public/screenshots/02-flashcards.png)
 
-### 2️⃣ Extract and review content
-![Text Extracted](public/screenshots/02-extracted.png)
+### 3️⃣ Quiz
+![Quiz](public/screenshots/03-quiz.png)
 
-### 3️⃣ Generate Flashcards
-![Flashcards](public/screenshots/03-flashcards.png)
+### 4️⃣ Smart Highlights
+![Highlights](public/screenshots/04-highlights.png)
 
-### 4️⃣ Take a Quiz
-![Quiz](public/screenshots/04-quiz.png)
-
-### 5️⃣ Smart Highlights
-![Highlights](public/screenshots/05-highlights.png)
+### 5️⃣ Vocabulary Box
+![Vocabulary Box](public/screenshots/05-vocabularybox.png)
 
 ### 6️⃣ Vocabulary Insights
-![Vocabulary](public/screenshots/06-vocab.png)
-
----)
-
-### 2️⃣ Extract and review content
-![Text Extracted](public/screenshots/02-extracted.png)
-
-### 3️⃣ Generate Flashcards
-![Flashcards](public/screenshots/03-flashcards.png)
-
-### 4️⃣ Take a Quiz
-![Quiz](public/screenshots/04-quiz.png)
-
-### 5️⃣ Smart Highlights
-![Highlights](public/screenshots/05-highlights.png)
-
-### 6️⃣ Vocabulary Insights
-![Vocabulary](public/screenshots/06-vocab.png)
+![Vocabulary Insights](public/screenshots/06-vocab.png)
 
 ---
 
