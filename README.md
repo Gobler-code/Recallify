@@ -1,11 +1,11 @@
 <div align="center">
 
-# 📚 Recallify
+# 📚 Ismaran
 
 **Transform any document into a complete study session — instantly.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://recallify-uparjan.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Recallify)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://ismaran-uparjan.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Ismaran)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
@@ -13,9 +13,9 @@
 
 ---
 
-## 🎯 What is Recallify?
+## 🎯 What is Ismaran?
 
-Recallify is an AI-powered study tool that turns your PDFs, images, and notes into interactive learning materials in seconds. Upload a document and instantly get:
+Ismaran is an AI-powered study tool that turns your PDFs, images, and notes into interactive learning materials in seconds. Upload a document and instantly get:
 
 - ✅ Flashcards with Q&A pairs
 - ✅ Multiple-choice quizzes with instant scoring
@@ -24,7 +24,7 @@ Recallify is an AI-powered study tool that turns your PDFs, images, and notes in
 
 No more manually making study cards. Just upload and learn.
 
-**→ [Try it live](https://recallify-uparjan.vercel.app/)**
+**→ [Try it live](https://ismaran-uparjan.vercel.app/)**
 
 ---
 
@@ -75,8 +75,8 @@ No more manually making study cards. Just upload and learn.
 
 ```bash
 # Clone the repo
-git clone https://github.com/Gobler-code/Recallify.git
-cd Recallify
+git clone https://github.com/Gobler-code/Ismaran.git
+cd Ismaran
 
 # Install dependencies
 npm install
@@ -106,7 +106,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ## 📁 Project Structure
 
 ```
-Recallify/
+Ismaran/
 ├── src/
 │   ├── components/
 │   │   ├── LeftSection/
