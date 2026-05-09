@@ -27,6 +27,47 @@ No more manually making study cards. Just upload and learn.
 **→ [Try it live](https://ismaran-uparjan.vercel.app/)**
 
 ---
+## 📸 Demo
+
+### 1️⃣ Upload your document or paste text
+![Empty State](## 📸 Demo
+
+### 1️⃣ Upload your document or paste text
+![Empty State](public/screenshots/Screenshot 2026-05-09 220017.png)
+
+### 2️⃣ Extract and review content
+![Text Extracted](public/screenshots/02-extracted.png)
+
+### 3️⃣ Generate Flashcards
+![Flashcards](public/screenshots/03-flashcards.png)
+
+### 4️⃣ Take a Quiz
+![Quiz](public/screenshots/04-quiz.png)
+
+### 5️⃣ Smart Highlights
+![Highlights](public/screenshots/05-highlights.png)
+
+### 6️⃣ Vocabulary Insights
+![Vocabulary](public/screenshots/06-vocab.png)
+
+---)
+
+### 2️⃣ Extract and review content
+![Text Extracted](public/screenshots/02-extracted.png)
+
+### 3️⃣ Generate Flashcards
+![Flashcards](public/screenshots/03-flashcards.png)
+
+### 4️⃣ Take a Quiz
+![Quiz](public/screenshots/04-quiz.png)
+
+### 5️⃣ Smart Highlights
+![Highlights](public/screenshots/05-highlights.png)
+
+### 6️⃣ Vocabulary Insights
+![Vocabulary](public/screenshots/06-vocab.png)
+
+---
 
 ## ✨ Features
 
