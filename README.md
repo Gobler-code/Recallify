@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/ismaran.png" alt="Ismaran Logo" width="120" />
+
 # 📚 Ismaran
 
 **Transform any document into a complete study session — instantly.**
@@ -10,7 +12,6 @@
 [![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
 </div>
----
 
 ## 🎯 What is Ismaran?
 
