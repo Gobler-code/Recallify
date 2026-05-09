@@ -4,12 +4,14 @@
 
 **Transform any document into a complete study session — instantly.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://recallify-341u-5itodvpct-gobler-codes-projects.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://recallify-uparjan.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Gobler--code-181717?style=for-the-badge&logo=github)](https://github.com/Gobler-code/Recallify)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 
 </div>
+
+---
 
 ## 🎯 What is Ismaran?
 
@@ -22,8 +24,7 @@ Ismaran is an AI-powered study tool that turns your PDFs, images, and notes into
 
 No more manually making study cards. Just upload and learn.
 
-(**→ [Try it live](https://recallify-341u-5itodvpct-gobler-codes-projects.vercel.app/)**)
-
+**→ [Try it live](https://recallify-uparjan.vercel.app/)**
 ---
 ## 📸 Demo
 
