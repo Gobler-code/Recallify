@@ -45,6 +45,10 @@ No more manually making study cards. Just upload and learn.
 | **Smart Highlights** | Key sentences color-coded by importance (Exam Critical / Important / Good to Know) |
 | **Vocabulary** | Definitions + correct & incorrect usage examples for selected words |
 
+### 📤 Export
+- Export Flashcards, Quizzes, Highlights, and Vocabulary as **text files**
+- Download anytime for offline study
+
 ### 🎨 UI & Experience
 - Dark theme optimized for long study sessions
 - Responsive layout for desktop and tablet
