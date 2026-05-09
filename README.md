@@ -24,7 +24,7 @@ Ismaran is an AI-powered study tool that turns your PDFs, images, and notes into
 
 No more manually making study cards. Just upload and learn.
 
-**→ [Try it live](https://recallify-uparjan.vercel.app/)**
+[Try it live →](https://recallify-uparjan.vercel.app/)
 ---
 ## 📸 Demo
 
