@@ -3,19 +3,22 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent';
 // Helper function to call Gemini API
-async function callGeminiAPI(prompt) {
+const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+
+async function callGroqAPI(prompt) {
   try {
-    const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+    const response = await fetch(GROQ_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        contents: [{
-          parts: [{
-            text: prompt
-          }]
-        }]
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.3,
+        max_tokens: 4096
       })
     });
 
@@ -24,20 +27,18 @@ async function callGeminiAPI(prompt) {
     }
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    
-    if (!text) {
-      throw new Error('No response from API');
-    }
+    const text = data.choices?.[0]?.message?.content;
 
+    if (!text) throw new Error('No response from API');
     return text;
+
   } catch (error) {
-    console.error('Gemini API error:', error);
+    console.error('Groq API error:', error);
     throw error;
   }
 }
 
-// Parse JSON from Gemini response (handles markdown code blocks)
+// Parse JSON from Groq response (handles markdown code blocks)
 function parseJSONResponse(text) {
   let cleanText = text.trim();
   
@@ -93,7 +94,7 @@ ${text}
 
 Respond ONLY with the JSON array, no additional text.`;
 
-  const response = await callGeminiAPI(prompt);
+  const response = await callGroqAPI(prompt);
   const flashcards = parseJSONResponse(response);
   
   if (!Array.isArray(flashcards)) {
@@ -129,7 +130,7 @@ ${text}
 
 Respond ONLY with the JSON array, no additional text.`;
 
-  const response = await callGeminiAPI(prompt);
+  const response = await callGroqAPI(prompt);
   const quizzes = parseJSONResponse(response);
   
   if (!Array.isArray(quizzes)) {
@@ -177,7 +178,7 @@ IMPORTANT:
 
 Respond ONLY with the JSON array, no additional text or markdown.`;
 
-  const response = await callGeminiAPI(prompt);
+  const response = await callGroqAPI(prompt);
   const vocabInsights = parseJSONResponse(response);
   
   if (!Array.isArray(vocabInsights)) {
@@ -260,7 +261,7 @@ ${text}
 
 Return ONLY the JSON array. No markdown code blocks, no explanation, just the raw JSON array.`;
 
-  const response = await callGeminiAPI(prompt);
+  const response = await callGroqAPI(prompt);
   const highlights = parseJSONResponse(response);
   
   if (!Array.isArray(highlights)) {
