@@ -1,8 +1,7 @@
 <div align="center">
 
 <img src="public/ismaran.png" alt="Ismaran Logo" width="120" />
-
-# 📚 Ismaran
+ Ismaran
 
 **Transform any document into a complete study session — instantly.**
 
